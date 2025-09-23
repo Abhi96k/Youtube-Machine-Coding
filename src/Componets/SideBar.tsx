@@ -11,6 +11,7 @@ import gamingIcon from "../assets/gaming-icon.svg";
 import moviesIcon from "../assets/movies-icon.svg";
 import { useSelector } from "react-redux";
 import type { RootState } from "../Store/store";
+import { Link } from "react-router-dom";
 export const SideBar = () => {
   const isSideBarOpen = useSelector(
     (state: RootState) => state.app.isSideBarOpen
@@ -23,22 +24,22 @@ export const SideBar = () => {
     >
       <div className="p-4 border-b border-gray-200">
         <nav className="space-y-2">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={homeIcon} alt="Home" className="w-5 h-5 mr-3" />
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/trending"
             className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={trendingIcon} alt="Trending" className="w-5 h-5 mr-3" />
             Trending
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions"
             className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img
@@ -47,7 +48,7 @@ export const SideBar = () => {
               className="w-5 h-5 mr-3"
             />
             Subscriptions
-          </a>
+          </Link>
         </nav>
       </div>
 
@@ -56,22 +57,22 @@ export const SideBar = () => {
           Library
         </h2>
         <nav className="space-y-1">
-          <a
-            href="#"
+          <Link
+            to="/history"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={historyIcon} alt="History" className="w-5 h-5 mr-3" />
             History
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/liked"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={likedIcon} alt="Liked Videos" className="w-5 h-5 mr-3" />
             Liked Videos
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/watch-later"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img
@@ -80,14 +81,14 @@ export const SideBar = () => {
               className="w-5 h-5 mr-3"
             />
             Watch Later
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/playlists"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={playlistsIcon} alt="Playlists" className="w-5 h-5 mr-3" />
             Playlists
-          </a>
+          </Link>
         </nav>
       </div>
 
@@ -97,79 +98,79 @@ export const SideBar = () => {
           Subscriptions
         </h2>
         <nav className="space-y-1">
-          <a
-            href="#"
+          <Link
+            to="/subscriptions/mrbeast"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <div className="w-6 h-6 mr-3 bg-red-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs font-bold">M</span>
             </div>
             MrBeast
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions/techworld"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <div className="w-6 h-6 mr-3 bg-blue-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs font-bold">T</span>
             </div>
             TechWorld
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions/gamingcentral"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <div className="w-6 h-6 mr-3 bg-green-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs font-bold">G</span>
             </div>
             Gaming Central
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions/cookingmaster"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <div className="w-6 h-6 mr-3 bg-purple-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs font-bold">C</span>
             </div>
             Cooking Master
-          </a>
+          </Link>
         </nav>
       </div>
 
       {/* Explore Section */}
       <div className="p-4">
-        <h2 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
+        <h2 className="text-sm font-sem ibold text-gray-900 mb-3 uppercase tracking-wide">
           Explore
         </h2>
         <nav className="space-y-1">
-          <a
-            href="#"
+          <Link
+            to="/subscriptions/cookingmaster"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={musicIcon} alt="Music" className="w-5 h-5 mr-3" />
             Music
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions/cookingmaster"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={sportsIcon} alt="Sports" className="w-5 h-5 mr-3" />
             Sports
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions/cookingmaster"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={gamingIcon} alt="Gaming" className="w-5 h-5 mr-3" />
             Gaming
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/subscriptions/cookingmaster"
             className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <img src={moviesIcon} alt="Movies" className="w-5 h-5 mr-3" />
             Movies
-          </a>
+          </Link>
         </nav>
       </div>
     </div>

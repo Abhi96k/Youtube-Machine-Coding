@@ -9,8 +9,11 @@ export const appSlice = createSlice({
     setIsSideBarOpen: (state, action) => {
       state.isSideBarOpen = action.payload;
     },
+    closeSideBar: (state) => {
+      state.isSideBarOpen = false;
+    },
   },
 });
 
-export const { setIsSideBarOpen } = appSlice.actions;
+export const { setIsSideBarOpen, closeSideBar } = appSlice.actions;
 export default appSlice.reducer;

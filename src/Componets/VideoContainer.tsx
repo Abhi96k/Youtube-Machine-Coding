@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import useFetchVideo from "../hooks/useFetchVideo";
 import { VideoCard } from "./VideoCard";
 import type { RootState } from "../Store/store";
+import { Link } from "react-router-dom";
 
 export const VideoContainer = () => {
   useFetchVideo();
@@ -11,7 +12,9 @@ export const VideoContainer = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
       {videos?.items?.map((video: any) => (
-        <VideoCard key={video.id} video={video} />
+        <Link to={`/watch?v=${video.id}`} key={video.id}>
+          <VideoCard key={video.id} video={video} />
+        </Link>
       ))}
     </div>
   );

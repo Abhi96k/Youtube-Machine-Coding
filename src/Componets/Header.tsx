@@ -2,7 +2,11 @@ import youtubeLogo from "../assets/youtube-logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsSideBarOpen } from "../Store/appSlice/appSlice";
 import type { RootState } from "../Store/store";
+import { useEffect, useState } from "react";
+import { YOUTUBE_SEARCH_API } from "../utils/constant";
 export const Header = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const dispatch = useDispatch();
   const isSideBarOpen = useSelector(
     (state: RootState) => state.app.isSideBarOpen
@@ -10,6 +14,17 @@ export const Header = () => {
   const toogleSideBar = () => {
     dispatch(setIsSideBarOpen(!isSideBarOpen));
   };
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+  const getSearchSuggestions = async () => {
+    const response = await fetch(`${YOUTUBE_SEARCH_API}${searchQuery}`);
+    const data = await response.json();
+    console.log(data);
+  };
+  useEffect(() => {
+    getSearchSuggestions();
+  }, [searchQuery]);
   return (
     <div className="flex justify-between items-center p-4 shadow-lg bg-white sticky top-0 z-50">
       <div className="flex items-center space-x-4">
@@ -28,6 +43,8 @@ export const Header = () => {
             className="flex-1 px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:border-blue-500"
             type="text"
             placeholder="Search"
+            value={searchQuery}
+            onChange={handleSearch}
           />
           <button className="px-6 py-2 bg-gray-100 border border-l-0 border-gray-300 rounded-r-full hover:bg-gray-200 focus:outline-none">
             <svg
